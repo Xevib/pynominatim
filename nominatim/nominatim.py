@@ -15,12 +15,14 @@ if sys.version_info.major == 2:
     from urllib2 import urlopen
     from urllib2 import URLError
     from urllib import quote_plus
+    from urllib2 import Request
 else:
     from urllib.request import urlopen
     from urllib.error import URLError
     from urllib.parse import quote_plus
+    from urllib import Request
 
-default_url = 'http://open.mapquestapi.com/nominatim/v1'
+default_url = 'http://nominatim.openstreetmap.org/search'
 """
 URL of the default Nominatim instance
 """
@@ -66,6 +68,8 @@ class NominatimRequest(object):
         self.logger.debug('url:\n' + url)
         try:
             response = urlopen(url)
+            req = Request(url)
+            req.add_header('User-Agent', 'pynominatim')
             return json.loads(response.read().decode('utf-8'))
         except URLError:
             self.logger.info('Server connection problem')
