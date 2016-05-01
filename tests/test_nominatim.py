@@ -7,7 +7,7 @@ if sys.version_info.major == 2:
     from StringIO import StringIO
 else:
     from io import StringIO
-from nominatim import *
+from pynominatim import *
 
 
 def result_has_osm_id(res, osm_id):
@@ -15,6 +15,7 @@ def result_has_osm_id(res, osm_id):
         if r['osm_id'] == osm_id:
             return True
     return False
+
 
 def address_has_city(address, city):
     if not isinstance(address, dict):
