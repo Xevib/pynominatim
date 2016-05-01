@@ -1,4 +1,4 @@
-nominatim
+pynominatim
 =========
 
 OSM Nominatim API module
