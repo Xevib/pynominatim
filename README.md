@@ -1,6 +1,9 @@
 pynominatim
 =========
 
+Based on:
+[https://github.com/damianbraun/nominatim](https://github.com/damianbraun/nominatim)
+
 OSM Nominatim API module
 [pypi](https://pypi.python.org/pypi/nominatim)
 
