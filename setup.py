@@ -1,13 +1,13 @@
 from setuptools import setup
 
 setup(
-    name='nominatim',
-    version='0.1',
-    author='Damian Braun',
+    name='pynominatim',
+    version='0.2',
+    author='Xavier Barnada',
     author_email='brunek5252@gmail.com',
-    url='https://github.com/damianbraun/nominatim',
+    url='https://github.com/Xevib/pynominatim.git',
     description='OSM Nominatim API module',
-    packages=['nominatim'],
+    packages=['pynominatim'],
     platforms='any',
     classifiers=[
         'Programming Language :: Python :: 2.7',
