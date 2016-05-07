@@ -113,7 +113,7 @@ class Nominatim(NominatimRequest):
         :returns: a list of search results (each a dict)
         :rtype: list or None
         """
-        url = self.url + '&q=' + quote_plus(address)
+        url = self.url + '&q=' + quote_plus(address.encode('utf8'))
         if acceptlanguage:
             url += '&accept-language=' + acceptlanguage
         if limit:
