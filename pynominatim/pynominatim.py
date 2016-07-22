@@ -123,7 +123,7 @@ class Nominatim(NominatimRequest):
         if countrycodes:
             url += '&countrycodes=' + ','.join(countrycodes)
         if addressdetails:
-            url += '&adressdetails=1'
+            url += '&addressdetails=1'
         return self.request(url)
 
 
