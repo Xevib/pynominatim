@@ -8,7 +8,7 @@ Based on:
 OSM Nominatim API module
 [pypi](https://pypi.python.org/pypi/nominatim)
 
-tested with **Python 2.7.6** and **Python 3.4.0**
+tested with **Python 2.7** and **Python 3.5**
 
 ### Instalation
 
