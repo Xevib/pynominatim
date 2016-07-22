@@ -20,7 +20,7 @@ else:
     from urllib.request import urlopen
     from urllib.error import URLError
     from urllib.parse import quote_plus
-    from urllib import Request
+    from urllib import request as Request
 
 default_url = 'http://nominatim.openstreetmap.org/search'
 """
