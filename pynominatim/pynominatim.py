@@ -94,7 +94,7 @@ class Nominatim(NominatimRequest):
         self.url += '/search?format=json'
 
     def query(self, address, acceptlanguage=None, limit=20,
-              countrycodes=None):
+              countrycodes=None, addressdetails=False):
         """
         Issue a geocoding query for *address* to the
         Nominatim instance and return the decoded results
@@ -110,6 +110,8 @@ class Nominatim(NominatimRequest):
              given by their ISO 3166-1alpha2 codes (cf.
              https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
         :type countrycodes: str iterable
+        :param addressdetails: indicate if deails wanted
+        :type addressdetails: bool
         :returns: a list of search results (each a dict)
         :rtype: list or None
         """
@@ -120,6 +122,8 @@ class Nominatim(NominatimRequest):
             url += '&limit=' + str(limit)
         if countrycodes:
             url += '&countrycodes=' + ','.join(countrycodes)
+        if addressdetails:
+            url += '&adressdetails=1'
         return self.request(url)
 
 
