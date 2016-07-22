@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from __future__ import absolute_import
 import unittest
 import logging
 import sys
@@ -7,7 +7,7 @@ if sys.version_info.major == 2:
     from StringIO import StringIO
 else:
     from io import StringIO
-from pynominatim import *
+from pynominatim.pynominatim import *
 
 
 def result_has_osm_id(res, osm_id):
