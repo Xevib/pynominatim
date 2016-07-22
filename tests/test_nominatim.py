@@ -110,3 +110,7 @@ class TestNominatim(unittest.TestCase):
 
     def tearDown(self):
         self.loghandler.close()
+
+if __name__ == '__main__':
+    unittest.main()
+
