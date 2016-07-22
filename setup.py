@@ -2,9 +2,9 @@ from setuptools import setup
 
 setup(
     name='pynominatim',
-    version='0.2.1',
+    version='0.2.2',
     author='Xavier Barnada',
-    author_email='brunek5252@gmail.com',
+    author_email='xbarnada@gmail.com',
     url='https://github.com/Xevib/pynominatim.git',
     description='OSM Nominatim API module',
     packages=['pynominatim'],
