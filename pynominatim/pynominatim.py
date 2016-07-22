@@ -20,7 +20,7 @@ else:
     from urllib.request import urlopen
     from urllib.error import URLError
     from urllib.parse import quote_plus
-    from urllib import Request
+    from urllib.request import Request
 
 default_url = 'http://nominatim.openstreetmap.org/search'
 """
@@ -142,7 +142,7 @@ class NominatimReverse(NominatimRequest):
         defaults to http://nominatim.openstreetmap.org
         """
         super(NominatimReverse, self).__init__(base_url)
-        self.url += '/reverse?format=json'
+        self.url = 'http://nominatim.openstreetmap.org/reverse?format=json'
 
     def query(self, lat=None, lon=None, osm_id=None, osm_type=None,
               acceptlanguage='', zoom=18):

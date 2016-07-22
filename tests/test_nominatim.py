@@ -71,7 +71,7 @@ class TestNominatim(unittest.TestCase):
         lon = 24.9435079
         res = n.query(lat=lat, lon=lon, zoom='city')
         self.assertTrue(isinstance(res, dict))
-        self.assertTrue('address' in  res)
+        self.assertTrue('address' in res)
         self.assertTrue(address_has_city(res['address'], 'Helsinki'))
 
     def test_reverse_geocoding_osm_url(self):
