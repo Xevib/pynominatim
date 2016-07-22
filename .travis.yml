@@ -2,4 +2,4 @@ language: python
 python:
   - "2.7"
   - "3.5"
-script:  python tests/test_nominatim.py
+script:  PYTHONPATH="." python test/test.py
