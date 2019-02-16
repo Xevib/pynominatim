@@ -145,7 +145,7 @@ class NominatimReverse(NominatimRequest):
         self.url = 'http://nominatim.openstreetmap.org/reverse?format=json'
 
     def query(self, lat=None, lon=None, osm_id=None, osm_type=None,
-              acceptlanguage='', zoom=18):
+              acceptlanguage='', zoom=18,email=None):
         """
         Issue a reverse geocoding query for a place given
         by *lat* and *lon*, or by *osm_id* and *osm_type*
@@ -161,11 +161,9 @@ class NominatimReverse(NominatimRequest):
         :type acceptlanguage: str or None
         :param zoom: zoom factor between from 0 to 18
         :type zoom: int or None or a key in :data:`zoom_aliases`
-        :param countrycodes: restrict the search to countries
-             given by their ISO 3166-1alpha2 codes (cf.
-             https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-        :type countrycodes: str iterable
         :returns: a list of search results (each a dict)
+        :param email: Contact email
+        :type email:str or None
         :rtype: list or None
         :raise: NominatimException if invalid zoom value
         """
@@ -182,6 +180,8 @@ class NominatimReverse(NominatimRequest):
             url += '&accept-language=' + acceptlanguage
         if zoom in zoom_aliases:
             zoom = zoom_aliases[zoom]
+        if email:
+            url += "&email={}".fomrat(email)
         if not isinstance(zoom, int) or zoom < 0 or zoom > 18:
             raise NominatimException('zoom must effectively be betwen 0 and 18')
         url +='&zoom=' + str(zoom)
