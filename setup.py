@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pynominatim',
-    version='0.2.4',
+    version='0.2.5',
     author='Xavier Barnada',
     author_email='xbarnada@gmail.com',
     url='https://github.com/Xevib/pynominatim.git',
