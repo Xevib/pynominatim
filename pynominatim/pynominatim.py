@@ -181,7 +181,7 @@ class NominatimReverse(NominatimRequest):
         if zoom in zoom_aliases:
             zoom = zoom_aliases[zoom]
         if email:
-            url += "&email={}".fomrat(email)
+            url += "&email={}".format(email)
         if not isinstance(zoom, int) or zoom < 0 or zoom > 18:
             raise NominatimException('zoom must effectively be betwen 0 and 18')
         url +='&zoom=' + str(zoom)
