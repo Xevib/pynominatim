@@ -63,13 +63,13 @@ class TestNominatim(unittest.TestCase):
         res = n.query(location)
         self.assertEqual(res, None)
         self.assertEqual(self.logstream.getvalue().strip().split('\n')[-1],
-            'Server format problem')
+            'Server connection problem')
 
     def test_reverse_geocoding_default_url(self):
         n = NominatimReverse()
         lat = 60.1666277
         lon = 24.9435079
-        res = n.query(lat=lat, lon=lon, zoom='city')
+        res = n.query(lat=lat, lon=lon, zoom='city', email="pynominatim@gmail.com")
         self.assertTrue(isinstance(res, dict))
         self.assertTrue('address' in res)
         self.assertTrue(address_has_city(res['address'], 'Helsinki'))
@@ -78,7 +78,7 @@ class TestNominatim(unittest.TestCase):
         n = NominatimReverse('http://nominatim.openstreetmap.org')
         lat = 60.1666277
         lon = 24.9435079
-        res = n.query(lat=lat, lon=lon, zoom='city')
+        res = n.query(lat=lat, lon=lon, zoom='city', email="pynominatim@gmail.com")
         self.assertTrue(isinstance(res, dict))
         self.assertTrue('address' in  res)
         self.assertTrue(address_has_city(res['address'], 'Helsinki'))
@@ -87,7 +87,7 @@ class TestNominatim(unittest.TestCase):
         n = NominatimReverse()
         osm_id = '184705'
         osm_type = 'R'
-        res = n.query(osm_id=osm_id, osm_type=osm_type, zoom='city')
+        res = n.query(osm_id=osm_id, osm_type=osm_type, zoom='city',email="pynominatim@gmail.com")
         self.assertTrue(isinstance(res, dict))
         self.assertTrue('address' in  res)
         self.assertTrue(address_has_city(res['address'], 'Helsinki'))
@@ -96,7 +96,7 @@ class TestNominatim(unittest.TestCase):
         n = NominatimReverse('http://nominatim.openstreetmap.org')
         osm_id = '184705'
         osm_type = 'R'
-        res = n.query(osm_id=osm_id, osm_type=osm_type, zoom='city')
+        res = n.query(osm_id=osm_id, osm_type=osm_type, zoom='city',email="pynominatim@gmail.com")
         self.assertTrue(isinstance(res, dict))
         self.assertTrue('address' in  res)
         self.assertTrue(address_has_city(res['address'], 'Helsinki'))
