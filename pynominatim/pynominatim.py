@@ -94,7 +94,7 @@ class Nominatim(NominatimRequest):
         self.url += '/search?format=json'
 
     def query(self, address, acceptlanguage=None, limit=20,
-              countrycodes=None, addressdetails=False):
+              countrycodes=None, addressdetails=False,viewbox=None):
         """
         Issue a geocoding query for *address* to the
         Nominatim instance and return the decoded results
@@ -112,6 +112,8 @@ class Nominatim(NominatimRequest):
         :type countrycodes: str iterable
         :param addressdetails: indicate if deails wanted
         :type addressdetails: bool
+        :param viewbox: Area where to search
+        :type viewbox: list
         :returns: a list of search results (each a dict)
         :rtype: list or None
         """
@@ -124,6 +126,9 @@ class Nominatim(NominatimRequest):
             url += '&countrycodes=' + ','.join(countrycodes)
         if addressdetails:
             url += '&addressdetails=1'
+        if viewbox:
+            url += "&viewbox="+(",".join(map(str,viewbox)))
+            url += "&bounded=1"
         return self.request(url)
 
 
