@@ -39,13 +39,13 @@ class TestNominatim(unittest.TestCase):
         n = Nominatim()
         location = 'Helsinki'
         res = n.query(location)
-        self.assertTrue(result_has_osm_id(res, '34914'))
+        self.assertTrue(result_has_osm_id(res, 34914))
 
     def test_geocoding_osm_url(self):
         n = Nominatim('http://nominatim.openstreetmap.org')
         location = 'Helsinki'
         res = n.query(location)
-        self.assertTrue(result_has_osm_id(res, '34914'))
+        self.assertTrue(result_has_osm_id(res, 34914))
 
     def test_geocoding_invalid_url(self):
         n = Nominatim('http://somereally.notexistingurl')
